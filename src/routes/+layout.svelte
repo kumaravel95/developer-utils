@@ -11,6 +11,7 @@
 	<header>
 		<Header />
 	</header>
+	<hr/>
 
 	<!-- Main Content Area -->
 	<div class="main-content">
@@ -27,6 +28,7 @@
 	</div>
 
 	<!-- Footer -->
+	<hr/>
 	<footer>
 		<Footer />
 	</footer>
@@ -46,24 +48,18 @@
 
 	.sidebar {
 		width: 250px; /* Adjust the width as needed */
-		background-color: var(--muted);
 	}
 
 	.content {
 		flex: 1;
 		padding: 16px;
-		background-color: var(--card);
 	}
 
 	header {
-		background-color: var(--primary);
-        color: var(--primary-foreground);
 		padding: 1rem;
 	}
 
 	footer {
-		background-color: var(--primary);
-		color: var(--primary-foreground);
 		padding: 1rem;
 		text-align: center;
 	}

@@ -1,19 +1,42 @@
 <script>
     import { appConfig } from '../config';
     import { goto } from '$app/navigation';
+	import { Button } from '$lib/components/ui/button';
+	import Sun from 'lucide-svelte/icons/sun';
+	import Moon from 'lucide-svelte/icons/moon';
+	import { onMount } from 'svelte';
+
     const { appName } = appConfig;
 
     let isDarkMode = false;
 
+	onMount(async () => {
+		const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+		if (prefersDarkScheme) {
+			isDarkMode = true;
+			document.documentElement.classList.add('dark');
+		}
+
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+			console.log();
+			const prefersDarkScheme = event.matches;
+			if (prefersDarkScheme) {
+				isDarkMode = true;
+				document.documentElement.classList.add('dark');
+			} else {
+        document.documentElement.classList.remove('dark');
+      }
+		});
+	});
+
     // Check if the user has set a dark mode preference
     if (typeof window !== 'undefined') {
         isDarkMode = localStorage.getItem('darkMode') === 'true';
-
         if (isDarkMode) {
             document.documentElement.classList.add('dark'); 
         }
     }
-
     function toggleDarkMode() {
         isDarkMode = !isDarkMode;
         
@@ -26,9 +49,14 @@
   
   <nav>
     <h1 on:click={() => goto('/')}>{appName}</h1>
-    <button on:click={toggleDarkMode}>
-      {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-    </button>
+	<Button on:click={toggleDarkMode}>
+		{#if isDarkMode}
+			<Sun className="mr-2 h-4 w-4" />
+		{:else}
+			<Moon className="mr-2 h-4 w-4" />
+		{/if}
+		{isDarkMode ? ' Light Mode' : ' Dark Mode'}
+	</Button>
   </nav>
   
   <style>
@@ -41,27 +69,5 @@
     h1 {
       margin: 0;
       cursor: pointer;
-    }
-
-    button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-      background-color: var(--primary);
-      color: var(--primary-foreground);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    button:hover {
-      background-color: var(--secondary);
-      color: var(--secondary-foreground);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    button:focus {
-      outline: 2px solid var(--ring);
-      outline-offset: 2px;
     }
   </style>
