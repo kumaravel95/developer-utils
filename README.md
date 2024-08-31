@@ -1,4 +1,4 @@
-[![Open Source Helpers](https://www.codetriage.com/kumaravel95/developer-utils/badges/users.svg)](https://www.codetriage.com/kumaravel95/developer-utils)
+[![Open Source Helpers](https://www.codetriage.com/kumaravel95/developer-utils/badges/users.svg)](https://www.codetriage.com/kumaravel95/developer-utils) ![License](https://img.shields.io/badge/license-MIT-blue)
 
 # Developer Utils
 
