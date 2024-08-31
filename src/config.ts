@@ -1,6 +1,6 @@
 // src/config.ts
 export const appConfig = {
-    appName: 'Developer Util',
+    appName: 'Developer Utils',
     version: '1.0.0',
     theme: 'light',
   } as const;
