@@ -1,3 +1,5 @@
+[![Open Source Helpers](https://www.codetriage.com/kumaravel95/developer-utils/badges/users.svg)](https://www.codetriage.com/kumaravel95/developer-utils)
+
 # Developer Utils
 
 Developer Utils is a collection of essential tools for web developers. This project offers a range of utilities such as URL encoding/decoding, HTML encoding/decoding, text transformations (uppercase, lowercase), and more.
