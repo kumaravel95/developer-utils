@@ -66,7 +66,7 @@ Contributions are what make the open-source community such an amazing place to l
 
 ## Roadmap
  - Add more text transformation tools
- - Implement a dark mode feature
+ - ~~Implement a dark mode feature~~
  - Add a clipboard copy functionality for output fields
  - Include localization for multiple languages
  - Create a browser extension for quick access to utilities
