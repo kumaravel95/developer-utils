@@ -8,6 +8,11 @@ Developer Utils is a collection of essential tools for web developers. This proj
 
 You can try out the live version of the app here: [Developer Utils Live](https://developer-utils.vercel.app/)  
 
+## Contributors
+<a href="https://github.com/kumaravel95/developer-utils/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=kumaravel95/developer-utils" />
+</a>
+
 ## Features
 
 - **URL Encode/Decode:** Easily encode or decode URLs to ensure safe transmission over the web.
