@@ -46,24 +46,24 @@
 
 	.sidebar {
 		width: 250px; /* Adjust the width as needed */
-		background-color: #f4f4f4;
+		background-color: var(--muted);
 	}
 
 	.content {
 		flex: 1;
 		padding: 16px;
-		background-color: #fff;
+		background-color: var(--card);
 	}
 
 	header {
-		background-color: #333;
-		color: #fff;
+		background-color: var(--primary);
+        color: var(--primary-foreground);
 		padding: 1rem;
 	}
 
 	footer {
-		background-color: #333;
-		color: #fff;
+		background-color: var(--primary);
+		color: var(--primary-foreground);
 		padding: 1rem;
 		text-align: center;
 	}
