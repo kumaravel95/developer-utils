@@ -12,7 +12,8 @@ export const commandItems = [
 		heading: "Web Tools",
 		items: [
 			{ label: "HTML Encode / Decode", icon: Code, route: "/tool/html-encode-decode" },
-			{ label: "URL Encode / Decode", icon: Link, route: "/tool/url-encode-decode" }
+			{ label: "XML Encode / Decode", icon: Code, route: "/tool/xml-encode-decode" },
+      { label: "URL Encode / Decode", icon: Link, route: "/tool/url-encode-decode" }
 		]
 	},
 	{

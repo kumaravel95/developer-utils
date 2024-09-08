@@ -23,8 +23,8 @@
 <br/>
 <Textarea rows="15" bind:value={text}/>
 <br/>
-<Button on:click={uppercase}>UPPERCASE</Button>
-<Button on:click={lowercase}>lowercase</Button>
+<Button on:click={uppercase}>Uppercase</Button>
+<Button on:click={lowercase}>Lowercase</Button>
 <style>
   h1 {
 		margin-top: 0;

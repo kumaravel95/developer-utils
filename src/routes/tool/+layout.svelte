@@ -5,7 +5,7 @@
 <div class="layout-container">
 	<div class="main-content">
 		<!-- Sidebar Navigation -->
-		<aside class="sidebar">
+		<aside class="sidebar hidden sm:block">
 			<Sidebar />
 		</aside>
 

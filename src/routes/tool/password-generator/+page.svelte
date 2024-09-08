@@ -7,6 +7,7 @@
 
 	let password = '';
 	let passwordLength = [12];
+	let passwordQuantity = [1];
 	let includeUppercase = true;
 	let includeLowercase = true;
 	let includeNumbers = true;
@@ -15,12 +16,16 @@
 
 	// Watch each relevant variable to trigger password generation
 	$: passwordLength, generatePassword();
+	$: passwordQuantity, generatePassword();
 	$: includeUppercase, generatePassword();
 	$: includeLowercase, generatePassword();
 	$: includeNumbers, generatePassword();
 	$: includeSymbols, generatePassword();
+	$: includeXmlSymbols, generatePassword();
 
 	function generatePassword() {
+		passwordLength[0] = passwordLength[0] > 50 ? 50 : (passwordLength[0] < 4 ? 4 : passwordLength[0]);
+		passwordQuantity[0] = passwordQuantity[0] > 15 ? 15 : (passwordQuantity[0] < 1 ? 1 : passwordQuantity[0]);
 		const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
 		const numberChars = '0123456789';
@@ -33,7 +38,7 @@
 		if (includeSymbols) charPool += symbolChars;
 
 		if (includeXmlSymbols) {
-			symbolChars += '&<>"'; // Add XML special characters if selected
+			symbolChars += '&<>"\''; // Add XML special characters if selected
 		} else {
 			// Exclude XML special characters if not selected
 			symbolChars = symbolChars.replace(/[&<>"']/g, '');
@@ -44,10 +49,15 @@
 			return;
 		}
 
-		password = Array(Number(passwordLength[0]))
+		password = Array(Number(passwordQuantity[0]))
 			.fill('')
-			.map(() => charPool[Math.floor(Math.random() * charPool.length)])
-			.join('');
+			.map(() =>
+				Array(Number(passwordLength[0]))
+					.fill('')
+					.map(() => charPool[Math.floor(Math.random() * charPool.length)])
+					.join('')
+			)
+			.join('\n'); // Join multiple passwords with a newline character
 	}
 </script>
 
@@ -57,9 +67,17 @@
 
 <h1>Password Generator</h1>
 
-<Textarea rows="5" bind:value={password} readonly class="typewriter-font" />
+<Textarea rows="15" bind:value={password} readonly class="typewriter-font" />
 
 <br />
+<div>
+	<label>Number of Passwords: {passwordQuantity[0]}</label>
+	<div class="slider-input-container">
+		<Slider bind:value={passwordQuantity} min={1} max={15} step={1} />
+		<Input type="number" bind:value={passwordQuantity[0]} min="1" max="15" />
+	</div>
+</div>
+
 <div>
 	<label>Password Length: {passwordLength[0]}</label>
 	<div class="slider-input-container">
@@ -67,6 +85,8 @@
 		<Input type="number" bind:value={passwordLength[0]} min="4" max="50" />
 	</div>
 </div>
+
+
 
 <div>
 	<Checkbox id="uppercase" bind:checked={includeUppercase} />
@@ -86,7 +106,7 @@
 </div>
 <div style="padding-left: 20px;">
 	<Checkbox id="xmlSymbols" bind:checked={includeXmlSymbols} disabled={!includeSymbols} />
-	<label for="xmlSymbols">Include &, &lt;, &gt;, &quot;</label>
+	<label for="xmlSymbols">Include &, &lt;, &gt;, &quot;, &apos; (XML unsafe)</label>
 </div>
 
 <Button on:click={generatePassword}>Generate Password</Button>
