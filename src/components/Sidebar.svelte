@@ -7,7 +7,7 @@
 
 <Command.Root class="max-w-[450px] rounded-lg border shadow-md">
 	<Command.Input placeholder="Type to search..." />
-	<Command.List>
+	<Command.List class="max-h-[400px]">
 		<Command.Empty>No results found.</Command.Empty>
 
 		{#each commandItems as group (group.heading)}

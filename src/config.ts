@@ -1,5 +1,5 @@
 // src/config.ts
-import { Code, Link, KeyRound, CaseSensitive } from 'lucide-svelte';
+import { Code, Link, KeyRound, CaseSensitive, Database } from 'lucide-svelte';
 
 export const appConfig = {
   appName: 'Developer Utils',
@@ -26,6 +26,12 @@ export const commandItems = [
 		heading: "String Manipulation",
 		items: [
 			{ label: "Uppercase / Lowercase", icon: CaseSensitive, route: "/tool/uppercase-lowercase" }
+		]
+	},
+  {
+		heading: "Formatter",
+		items: [
+			{ label: "SQL Formatter", icon: Database, route: "/tool/sql-formatter" }
 		]
 	}
 ];

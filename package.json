@@ -46,6 +46,7 @@
 		"clsx": "^2.1.1",
 		"cmdk-sv": "^0.0.18",
 		"lucide-svelte": "^0.436.0",
+		"sql-formatter": "^15.4.2",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1"
 	}
