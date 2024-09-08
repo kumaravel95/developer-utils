@@ -1,19 +1,13 @@
 <script>
-	import '../app.css';
-
-	import Header from '../components/Header.svelte';
-	import Footer from '../components/Footer.svelte';
+	import Sidebar from '../../components/Sidebar.svelte';
 </script>
 
 <div class="layout-container">
-	<!-- Header -->
-	<header>
-		<Header />
-	</header>
-	<hr/>
-
-	<!-- Main Content Area -->
 	<div class="main-content">
+		<!-- Sidebar Navigation -->
+		<aside class="sidebar">
+			<Sidebar />
+		</aside>
 
 		<!-- Dynamic Content Area -->
 		<main class="content">
@@ -22,11 +16,6 @@
 		</main>
 	</div>
 
-	<!-- Footer -->
-	<hr/>
-	<footer>
-		<Footer />
-	</footer>
 </div>
 
 <style>
@@ -48,14 +37,5 @@
 	.content {
 		flex: 1;
 		padding: 16px;
-	}
-
-	header {
-		padding: 1rem;
-	}
-
-	footer {
-		padding: 1rem;
-		text-align: center;
 	}
 </style>

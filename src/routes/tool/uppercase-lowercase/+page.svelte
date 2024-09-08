@@ -26,6 +26,12 @@
 <Button on:click={uppercase}>UPPERCASE</Button>
 <Button on:click={lowercase}>lowercase</Button>
 <style>
+  h1 {
+		margin-top: 0;
+		font-size: 1.5em;
+		margin-bottom: 20px;
+	}
+  
   h2 {
     margin-top: 0;
   }

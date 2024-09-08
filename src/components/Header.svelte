@@ -1,7 +1,6 @@
 <script>
 	import { appConfig } from '../config';
 	import { goto } from '$app/navigation';
-	import { Button } from '$lib/components/ui/button';
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
 	import { onMount } from 'svelte';
@@ -60,14 +59,13 @@
 			{/if}
 		</a>
 		&nbsp;
-		<Button on:click={toggleDarkMode}>
+		<a class="theme-change" on:click={toggleDarkMode}>
 			{#if isDarkMode}
-				<Sun className="mr-2 h-4 w-4" />
+				<Sun className="mr-2 h-4 w-4" size={32} />
 			{:else}
-				<Moon className="mr-2 h-4 w-4" />
+				<Moon className="mr-2 h-4 w-4" size={32} />
 			{/if}
-			{isDarkMode ? ' Light Mode' : ' Dark Mode'}
-		</Button>
+		</a>
 	</div>
 </nav>
 
@@ -82,9 +80,9 @@
 		display: flex;
 	}
 
-  .right-contents a {
-    padding-top: 2px;
-  }
+	.theme-change {
+		cursor: pointer;
+	}
 
 	h1 {
 		margin: 0;

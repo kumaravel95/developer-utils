@@ -5,20 +5,21 @@
     let text = "";
 
     function encode() {
-      text = encodeURIComponent(text)
+      text = encodeURI(text)
     }
 
     function decode() {
-      text = decodeURIComponent(text)
+      text = decodeURI(text)
     }
 
 </script>
 
+
 <svelte:head>
-    <title>HTML Encode / Decode</title> 
+    <title>URL Encode / Decode</title> 
 </svelte:head>
 
-<h1>HTML Encode / Decode</h1>
+<h1>URL Encode / Decode</h1>
 
 <br/>
 <Textarea rows="15" bind:value={text}/>
@@ -26,6 +27,11 @@
 <Button on:click={encode}>Encode</Button>
 <Button on:click={decode}>Decode</Button>
 <style>
+  h1 {
+		margin-top: 0;
+		font-size: 1.5em;
+		margin-bottom: 20px;
+	}
   h2 {
     margin-top: 0;
   }
