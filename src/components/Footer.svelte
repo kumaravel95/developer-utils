@@ -4,7 +4,7 @@
 </script>
 
 <footer>
-	<p>&copy; {new Date().getFullYear()} {appName} {version}. All rights reserved.</p>
+	<p>&copy; {new Date().getFullYear()} {appName} {version}. Licensed under the MIT License.</p>
 	<a href="/credits" title="api icons">Credits</a>
 </footer>
 
