@@ -6,6 +6,7 @@
 	import CodeMirror from 'svelte-codemirror-editor';
 	import { sql } from '@codemirror/lang-sql';
 	import { codeMirrorStyle } from '../../../config';
+	import { toast } from 'svelte-sonner';
 
 	let value = `select supplier_name,city from
 (select * from suppliers join addresses on suppliers.address_id=addresses.id)
@@ -40,7 +41,10 @@ order by supplier_name asc,city desc;`;
 <br />
 <div class="action-contents">
 	<Button on:click={sqlFormat}>Format</Button>
-	<Button on:click={() => copyText(value)}>
+	<Button on:click={() => {
+		copyText(value);
+		toast.success('Copied to clipboard');
+	}}>
 		<Copy class="mr-2 h-4 w-4" />
 		Copy
 	</Button>

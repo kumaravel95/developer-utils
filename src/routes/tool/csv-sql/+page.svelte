@@ -7,6 +7,7 @@
 	import CodeMirror from 'svelte-codemirror-editor';
 	import { sql } from '@codemirror/lang-sql';
 	import { codeMirrorStyle } from '../../../config';
+	import { toast } from 'svelte-sonner';
 
 	let csvInput = `id,name,amount,Remark
 1,"Johnson, Smith, and Jones Co.",345.33,Pays on time
@@ -122,7 +123,10 @@
 {#if value}
 	<p>Output:</p>
 	<CodeMirror bind:value lang={sql()} styles={codeMirrorStyle} />
-	<Button on:click={() => copyText(value)}>
+	<Button on:click={() => {
+		copyText(value);
+		toast.success('Copied to clipboard');
+	}}>
 		<Copy class="mr-2 h-4 w-4" />
 		Copy
 	</Button>

@@ -7,6 +7,7 @@
 	import { Input } from '$lib/components/ui/input';
 	import CodeMirror from 'svelte-codemirror-editor';
 	import { codeMirrorStyle } from '../../../config';
+	import { toast } from 'svelte-sonner';
 
 	let value = '';
 	let passwordLength = [12];
@@ -25,11 +26,12 @@
 	$: includeNumbers, generatePassword();
 	$: includeSymbols, generatePassword();
 	$: includeXmlSymbols, generatePassword();
-	generatePassword()
+	generatePassword();
 
 	function generatePassword() {
-		passwordLength[0] = passwordLength[0] > 50 ? 50 : (passwordLength[0] < 4 ? 4 : passwordLength[0]);
-		passwordQuantity[0] = passwordQuantity[0] > 15 ? 15 : (passwordQuantity[0] < 1 ? 1 : passwordQuantity[0]);
+		passwordLength[0] = passwordLength[0] > 50 ? 50 : passwordLength[0] < 4 ? 4 : passwordLength[0];
+		passwordQuantity[0] =
+			passwordQuantity[0] > 15 ? 15 : passwordQuantity[0] < 1 ? 1 : passwordQuantity[0];
 		const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
 		const numberChars = '0123456789';
@@ -71,10 +73,7 @@
 
 <h1>Password Generator</h1>
 
-<CodeMirror
-	bind:value
-	styles={codeMirrorStyle}
-/>
+<CodeMirror bind:value styles={codeMirrorStyle} />
 <!-- <Textarea rows="15" bind:value={password} readonly class="typewriter-font" /> -->
 
 <br />
@@ -93,8 +92,6 @@
 		<Input type="number" bind:value={passwordLength[0]} min="4" max="50" />
 	</div>
 </div>
-
-
 
 <div>
 	<Checkbox id="uppercase" bind:checked={includeUppercase} />
@@ -119,12 +116,16 @@
 
 <div class="action-contents">
 	<Button on:click={generatePassword}>Generate Password</Button>
-	<Button on:click={() => copyText(value)}>
+	<Button
+		on:click={() => {
+			copyText(value);
+			toast.success('Copied to clipboard');
+		}}
+	>
 		<Copy class="mr-2 h-4 w-4" />
 		Copy
 	</Button>
 </div>
-
 
 <style>
 	h1 {

@@ -3,6 +3,7 @@
 	import { Copy } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Textarea } from '$lib/components/ui/textarea';
+	import { toast } from 'svelte-sonner';
 
 	let str = '';
 
@@ -38,7 +39,10 @@
 <div class="action-contents">
 	<Button on:click={xmlEncode}>Encode</Button>
 	<Button on:click={xmlDecode}>Decode</Button>
-	<Button on:click={() => copyText(str)}>
+	<Button on:click={() => {
+		copyText(str);
+		toast.success('Copied to clipboard');
+	}}>
 		<Copy class="mr-2 h-4 w-4" />
 		Copy
 	</Button>

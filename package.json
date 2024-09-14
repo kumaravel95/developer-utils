@@ -47,9 +47,11 @@
 		"clsx": "^2.1.1",
 		"cmdk-sv": "^0.0.18",
 		"lucide-svelte": "^0.436.0",
+		"mode-watcher": "^0.4.1",
 		"sql-formatter": "^15.4.2",
 		"svelte-codemirror-editor": "^1.4.1",
 		"svelte-copy": "^1.4.2",
+		"svelte-sonner": "^0.3.28",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1"
 	}

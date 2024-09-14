@@ -41,14 +41,11 @@ export const codeMirrorStyle = {
 	'&': {
 		"min-height": '30vh',
 		"max-height": '50vh',
-		fontSize: '14pt'
+		fontSize: '14pt',
 	},
 	'.cm-gutters': {
 		backgroundColor: 'hsl(var(--background) / var(--tw-bg-opacity))',
 		color: '#ddd',
 		border: 'none'
-	},
-	".cm-activeLineGutter": {
-		backgroundColor: "#e2f2ff"
 	}
 }

@@ -4,6 +4,7 @@
 	import Header from '../components/Header.svelte';
 	import Footer from '../components/Footer.svelte';
 	import CodeDark from '$lib/assets/code-dark.png';
+	import { Toaster } from "$lib/components/ui/sonner";
 </script>
 
 <svelte:head>
@@ -32,6 +33,7 @@
 	<footer>
 		<Footer />
 	</footer>
+	<Toaster />
 </div>
 
 <style>
