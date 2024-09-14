@@ -1,5 +1,5 @@
 // src/config.ts
-import { Code, Link, KeyRound, CaseSensitive, Database } from 'lucide-svelte';
+import { Code, Link, KeyRound, CaseSensitive, Database, FileSpreadsheet } from 'lucide-svelte';
 
 export const appConfig = {
 	appName: 'Developer Utils',
@@ -29,9 +29,10 @@ export const commandItems = [
 		]
 	},
 	{
-		heading: "Formatter",
+		heading: "SQL Tools",
 		items: [
-			{ label: "SQL Formatter", icon: Database, route: "/tool/sql-formatter" }
+			{ label: "SQL Formatter", icon: Database, route: "/tool/sql-formatter" },
+			{ label: "CSV to SQL", icon: FileSpreadsheet, route: "/tool/csv-sql" }
 		]
 	}
 ];
