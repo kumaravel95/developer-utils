@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
+	import { copyText } from 'svelte-copy';
+	import { Copy } from 'lucide-svelte';
 	import { format } from 'sql-formatter';
 	import CodeMirror from 'svelte-codemirror-editor';
 	import { sql } from '@codemirror/lang-sql';
@@ -33,16 +35,24 @@ order by supplier_name asc,city desc;`;
 <h1>SQL Formatter</h1>
 
 <br />
-<CodeMirror
-	bind:value
-	lang={sql()}
-	styles={codeMirrorStyle}
-/>
+<CodeMirror bind:value lang={sql()} styles={codeMirrorStyle} />
 <!-- <Textarea rows="15" bind:value={query} /> -->
 <br />
-<Button on:click={sqlFormat}>Format</Button>
+<div class="action-contents">
+	<Button on:click={sqlFormat}>Format</Button>
+	<Button on:click={() => copyText(value)}>
+		<Copy class="mr-2 h-4 w-4" />
+		Copy
+	</Button>
+</div>
 
 <style>
+	.action-contents {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	}
+
 	h1 {
 		margin-top: 0;
 		font-size: 1.5em;

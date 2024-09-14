@@ -49,6 +49,7 @@
 		"lucide-svelte": "^0.436.0",
 		"sql-formatter": "^15.4.2",
 		"svelte-codemirror-editor": "^1.4.1",
+		"svelte-copy": "^1.4.2",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1"
 	}

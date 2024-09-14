@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { copyText } from 'svelte-copy';
+	import { Copy } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Slider } from '$lib/components/ui/slider';
 	import { Checkbox } from '$lib/components/ui/checkbox';
@@ -23,6 +25,7 @@
 	$: includeNumbers, generatePassword();
 	$: includeSymbols, generatePassword();
 	$: includeXmlSymbols, generatePassword();
+	generatePassword()
 
 	function generatePassword() {
 		passwordLength[0] = passwordLength[0] > 50 ? 50 : (passwordLength[0] < 4 ? 4 : passwordLength[0]);
@@ -114,7 +117,14 @@
 	<label for="xmlSymbols">Include &, &lt;, &gt;, &quot;, &apos; (XML unsafe)</label>
 </div>
 
-<Button on:click={generatePassword}>Generate Password</Button>
+<div class="action-contents">
+	<Button on:click={generatePassword}>Generate Password</Button>
+	<Button on:click={() => copyText(value)}>
+		<Copy class="mr-2 h-4 w-4" />
+		Copy
+	</Button>
+</div>
+
 
 <style>
 	h1 {
@@ -138,5 +148,10 @@
 
 	.typewriter-font {
 		font-family: 'Courier New', Courier, monospace;
+	}
+	.action-contents {
+		display: flex;
+		align-items: center;
+		gap: 5px;
 	}
 </style>

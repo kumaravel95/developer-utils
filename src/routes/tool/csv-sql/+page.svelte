@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { copyText } from 'svelte-copy';
+	import { Copy } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Textarea } from '$lib/components/ui/textarea';
 	import { Input } from '$lib/components/ui/input';
@@ -120,6 +122,10 @@
 {#if value}
 	<p>Output:</p>
 	<CodeMirror bind:value lang={sql()} styles={codeMirrorStyle} />
+	<Button on:click={() => copyText(value)}>
+		<Copy class="mr-2 h-4 w-4" />
+		Copy
+	</Button>
 {/if}
 
 <style>
