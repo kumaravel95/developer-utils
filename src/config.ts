@@ -2,9 +2,9 @@
 import { Code, Link, KeyRound, CaseSensitive, Database } from 'lucide-svelte';
 
 export const appConfig = {
-  appName: 'Developer Utils',
-  version: '1.0.0',
-  theme: 'light',
+	appName: 'Developer Utils',
+	version: '1.0.0',
+	theme: 'light',
 } as const;
 
 export const commandItems = [
@@ -13,7 +13,7 @@ export const commandItems = [
 		items: [
 			{ label: "HTML Encode / Decode", icon: Code, route: "/tool/html-encode-decode" },
 			{ label: "XML Encode / Decode", icon: Code, route: "/tool/xml-encode-decode" },
-      { label: "URL Encode / Decode", icon: Link, route: "/tool/url-encode-decode" }
+			{ label: "URL Encode / Decode", icon: Link, route: "/tool/url-encode-decode" }
 		]
 	},
 	{
@@ -28,10 +28,26 @@ export const commandItems = [
 			{ label: "Uppercase / Lowercase", icon: CaseSensitive, route: "/tool/uppercase-lowercase" }
 		]
 	},
-  {
+	{
 		heading: "Formatter",
 		items: [
 			{ label: "SQL Formatter", icon: Database, route: "/tool/sql-formatter" }
 		]
 	}
 ];
+
+export const codeMirrorStyle = {
+	'&': {
+		"min-height": '30vh',
+		"max-height": '50vh',
+		fontSize: '14pt'
+	},
+	'.cm-gutters': {
+		backgroundColor: 'hsl(var(--background) / var(--tw-bg-opacity))',
+		color: '#ddd',
+		border: 'none'
+	},
+	".cm-activeLineGutter": {
+		backgroundColor: "#e2f2ff"
+	}
+}

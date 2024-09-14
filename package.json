@@ -42,11 +42,13 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@codemirror/lang-sql": "^6.7.1",
 		"bits-ui": "^0.21.13",
 		"clsx": "^2.1.1",
 		"cmdk-sv": "^0.0.18",
 		"lucide-svelte": "^0.436.0",
 		"sql-formatter": "^15.4.2",
+		"svelte-codemirror-editor": "^1.4.1",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1"
 	}

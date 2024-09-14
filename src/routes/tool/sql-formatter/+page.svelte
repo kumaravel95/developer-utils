@@ -1,8 +1,15 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
-	import { Textarea } from '$lib/components/ui/textarea';
 	import { format } from 'sql-formatter';
+	import CodeMirror from 'svelte-codemirror-editor';
+	import { sql } from '@codemirror/lang-sql';
+	import { codeMirrorStyle } from '../../../config';
 
+	let value = `select supplier_name,city from
+(select * from suppliers join addresses on suppliers.address_id=addresses.id)
+as suppliers
+where supplier_id>500
+order by supplier_name asc,city desc;`;
 	let query = `select supplier_name,city from
 (select * from suppliers join addresses on suppliers.address_id=addresses.id)
 as suppliers
@@ -10,7 +17,7 @@ where supplier_id>500
 order by supplier_name asc,city desc;`;
 
 	function sqlFormat() {
-		query = format(query, {
+		value = format(value, {
 			language: 'mysql',
 			tabWidth: 4,
 			keywordCase: 'upper',
@@ -26,7 +33,12 @@ order by supplier_name asc,city desc;`;
 <h1>SQL Formatter</h1>
 
 <br />
-<Textarea rows="15" bind:value={query} />
+<CodeMirror
+	bind:value
+	lang={sql()}
+	styles={codeMirrorStyle}
+/>
+<!-- <Textarea rows="15" bind:value={query} /> -->
 <br />
 <Button on:click={sqlFormat}>Format</Button>
 

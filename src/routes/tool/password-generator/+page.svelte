@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
-	import { Textarea } from '$lib/components/ui/textarea';
 	import { Slider } from '$lib/components/ui/slider';
 	import { Checkbox } from '$lib/components/ui/checkbox';
 	import { Input } from '$lib/components/ui/input';
+	import CodeMirror from 'svelte-codemirror-editor';
+	import { codeMirrorStyle } from '../../../config';
 
-	let password = '';
+	let value = '';
 	let passwordLength = [12];
 	let passwordQuantity = [1];
 	let includeUppercase = true;
@@ -45,11 +46,11 @@
 		}
 
 		if (charPool.length === 0) {
-			password = '';
+			value = '';
 			return;
 		}
 
-		password = Array(Number(passwordQuantity[0]))
+		value = Array(Number(passwordQuantity[0]))
 			.fill('')
 			.map(() =>
 				Array(Number(passwordLength[0]))
@@ -67,7 +68,11 @@
 
 <h1>Password Generator</h1>
 
-<Textarea rows="15" bind:value={password} readonly class="typewriter-font" />
+<CodeMirror
+	bind:value
+	styles={codeMirrorStyle}
+/>
+<!-- <Textarea rows="15" bind:value={password} readonly class="typewriter-font" /> -->
 
 <br />
 <div>
