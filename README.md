@@ -15,11 +15,13 @@ You can try out the live version of the app here: [Developer Utils Live](https:/
 
 ## Features
 
-- **URL Encode/Decode:** Easily encode or decode URLs to ensure safe transmission over the web.
-- **HTML Encode/Decode:** Convert special characters to HTML entities or decode HTML entities back to their original characters.
-- **Text Transformations:**
-  - **Uppercase:** Convert any text to uppercase.
-  - **Lowercase:** Convert any text to lowercase.
+- **HTML Encode / Decode**: Easily convert special characters to HTML entities or decode them back to their original form.
+- **XML Encode / Decode**: Encode or decode XML data for secure processing or display.
+- **URL Encode / Decode**: Convert text into a valid URL format or decode URL-encoded data.
+- **Password Generator**: Create strong, secure passwords with customizable options for length and complexity.
+- **String Manipulation**: Perform transformations like changing the case of strings (uppercase/lowercase).
+- **SQL Formatter**: Automatically format SQL queries for better readability and maintenance.
+- **CSV to SQL**: Convert CSV data into SQL `INSERT` statements for easy database population.
 - **And More:** Additional utilities will be added to enhance productivity for web developers.
 
 ## Getting Started

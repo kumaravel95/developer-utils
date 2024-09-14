@@ -13,7 +13,7 @@
 		{#each commandItems as group (group.heading)}
 			<Command.Group heading={group.heading}>
 				{#each group.items as item (item.label)}
-					<Command.Item onSelect={() => goto(item.route)}>
+					<Command.Item style="cursor:pointer" onSelect={() => goto(item.route)}>
 						<svelte:component this={item.icon} class="mr-2 h-4 w-4" />
 						<span>{item.label}</span>
 					</Command.Item>
