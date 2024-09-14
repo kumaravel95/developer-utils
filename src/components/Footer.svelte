@@ -5,6 +5,7 @@
 
 <footer>
 	<p>&copy; {new Date().getFullYear()} {appName} {version}. All rights reserved.</p>
+	<a href="/credits" title="api icons">Credits</a>
 </footer>
 
 <style>

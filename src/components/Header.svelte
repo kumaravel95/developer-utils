@@ -6,6 +6,8 @@
 	import { onMount } from 'svelte';
 	import Github from '$lib/assets/github.svg';
 	import GithubWhite from '$lib/assets/github-white.svg';
+	import Code from '$lib/assets/code.png';
+	import CodeDark from '$lib/assets/code-dark.png';
 
 	const { appName } = appConfig;
 
@@ -49,8 +51,17 @@
 </script>
 
 <nav>
-	<h1 on:click={() => goto('/')}>{appName}</h1>
-	<div class="right-contents">
+	<h1 on:click={() => goto('/')}>
+		<div class="logo-contents">
+			{#if isDarkMode}
+				<img src={CodeDark} alt="Developer Utils" />
+			{:else}
+				<img src={Code} alt="Developer Utils" />
+			{/if}
+			<b>{appName}</b>
+		</div>
+	</h1>
+	<div class="logo-contents">
 		<a target="_blank" href="https://github.com/kumaravel95/developer-utils">
 			{#if isDarkMode}
 				<img src={GithubWhite} alt="Github" />
@@ -58,7 +69,6 @@
 				<img src={Github} alt="Github" />
 			{/if}
 		</a>
-		&nbsp;
 		<a class="theme-change" on:click={toggleDarkMode}>
 			{#if isDarkMode}
 				<Sun className="mr-2 h-4 w-4" size={32} />
@@ -76,8 +86,10 @@
 		justify-content: space-between;
 	}
 
-	.right-contents {
+	.logo-contents {
 		display: flex;
+		align-items: center;
+		gap: 10px;
 	}
 
 	.theme-change {
